@@ -15,6 +15,12 @@ app.get('/', (req, res) => {
     res.send('MoodFlix Backend is up and running');
 })
 
+app.get('/recommend', (req, res) => {
+    
+    res.send('Recommendation endpoint');
+
+});
+
 
 
 app.listen(PORT, () => {
