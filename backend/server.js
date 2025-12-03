@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import { getGenreIdsForMood } from './genres.js';
 
 dotenv.config();
 

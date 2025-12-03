@@ -53,4 +53,4 @@ function getGenreIdsForMood(mood) {
   return ids.length ? ids : [35]; // default: Comedy
 }
 
-module.exports = { getGenreIdsForMood, tmdbGenreMap };
+export { getGenreIdsForMood, tmdbGenreMap };
