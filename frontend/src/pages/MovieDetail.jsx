@@ -34,7 +34,7 @@ export default function MovieDetail() {
   const handleWatch = () => {
     if (movie) {
       const searchQuery = encodeURIComponent(movie.title);
-      window.open(`https://moviebox.ph/?s=${searchQuery}`, '_blank');
+      window.open(`https://moviebox.ph/web/searchResult?keyword=${searchQuery}`);
     }
   };
 
