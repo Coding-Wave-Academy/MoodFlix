@@ -7,9 +7,9 @@ const moodToGenreNames = {
   relaxed: ['Animation', 'Documentary', 'Fantasy'],
   nostalgic: ['Drama', 'Romance', 'Classic'],
   romantic: ['Romance', 'Drama'],
-  adventurous: ['Adventure', 'Action', 'Fantasy'],
+  adventurous: ['Adventure', 'Action', 'Fantasy', 'War'],
   scary: ['Horror', 'Thriller'],
-  thoughtful: ['Drama', 'Documentary'],
+  thoughtful: ['Drama', 'Documentary', 'History', 'War'],
   funny: ['Comedy', 'Family'],
 };
 

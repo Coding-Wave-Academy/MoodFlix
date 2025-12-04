@@ -1,0 +1,372 @@
+/* client/src/pages/Home.css */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header-section h1 {
+  font-size: 3.2rem;
+  margin: 20px 0;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  background: linear-gradient(to right, #ff4d4d, #ff8c00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  opacity: 0.9;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Mood Section */
+.mood-section {
+  margin-bottom: 40px;
+}
+
+.mood-input {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.mood-input input {
+  width: 300px;
+  padding: 14px 20px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  outline: none;
+}
+
+.mood-input button {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mood-input button:hover {
+  background: #ff1a1a;
+  transform: scale(1.05);
+}
+/* Mood Buttons with Animations */
+.mood-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 30px 0;
+  position: relative;
+}
+
+.mood-btn {
+  position: relative;
+  background: rgba(30, 41, 59, 0.8); /* Dark slate blue */
+  border: 2px solid rgba(148, 163, 184, 0.4);
+  color: white;
+  padding: 16px 24px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 180px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transform: translateY(0);
+}
+
+.mood-btn:hover {
+  transform: translateY(-8px) scale(1.05);
+  border-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4),
+              0 0 20px rgba(255, 255, 255, 0.15);
+}
+
+.mood-btn:hover .mood-icon {
+  transform: scale(1.3) rotate(15deg);
+}
+
+.mood-btn.mood-hover {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+  70% { box-shadow: 0 0 0 12px rgba(255, 255, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+.mood-icon-container {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  transition: transform 0.4s ease;
+}
+
+.mood-icon {
+  font-size: 3.5rem;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+}
+
+.mood-text {
+  font-size: 1.3rem;
+  margin-top: 5px;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Glow effect */
+.mood-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+  transform: scale(0.7);
+}
+
+.mood-btn:hover .mood-glow {
+  opacity: 0.2;
+  transform: scale(1);
+}
+
+/* Tooltip */
+.mood-tooltip {
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  font-weight: 400;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.mood-btn:hover .mood-tooltip {
+  opacity: 1;
+  bottom: -45px;
+}
+
+/* Color variations for different moods */
+.mood-btn:nth-child(1) { --glow-color: #FFD700; } /* happy */
+.mood-btn:nth-child(2) { --glow-color: #87CEFA; } /* sad */
+.mood-btn:nth-child(3) { --glow-color: #FF6B6B; } /* excited */
+.mood-btn:nth-child(4) { --glow-color: #4CC9F0; } /* relaxed */
+.mood-btn:nth-child(5) { --glow-color: #F368E0; } /* nostalgic */
+.mood-btn:nth-child(6) { --glow-color: #FF9F43; } /* romantic */
+.mood-btn:nth-child(7) { --glow-color: #54A0FF; } /* adventurous */
+.mood-btn:nth-child(8) { --glow-color: #C0392B; } /* scary */
+
+.mood-btn:hover {
+  border-color: var(--glow-color);
+}
+
+.mood-btn:hover .mood-glow {
+  background: radial-gradient(
+    circle,
+    var(--glow-color) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+}
+
+.mood-btn:hover .mood-icon {
+  filter: drop-shadow(0 0 10px var(--glow-color));
+}
+/* Carousel */
+.carousel-container {
+  position: relative;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0;
+  perspective: 1500px;
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.carousel-item {
+  position: absolute;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  transform-origin: center center;
+}
+/* Add to the bottom of Home.css */
+.carousel-card:hover {
+  transform: translateY(-15px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6),
+              0 0 25px var(--glow-color, rgba(255,255,255,0.3));
+}
+
+.carousel-card:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(255,255,255,0.2) 0%,
+    transparent 70%
+  );
+  opacity: 0.3;
+  border-radius: 12px;
+  pointer-events: none;
+}
+.carousel-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-title {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  color: white;
+  padding: 15px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Navigation Arrows */
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.carousel-nav:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-nav:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.carousel-nav.left {
+  left: 20px;
+}
+
+.carousel-nav.right {
+  right: 20px;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 60px 0;
+  color: rgba(255,255,255,0.7);
+}
+
+.empty-state h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.empty-state p {
+  font-size: 1.3rem;
+  max-width: 600px;
+  margin: 10px auto;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .carousel-card {
+    width: 200px;
+    height: 300px;
+  }
+  
+  .mood-input input {
+    width: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-card {
+    width: 180px;
+    height: 270px;
+  }
+  
+  .mood-input {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .mood-input input {
+    width: 100%;
+    max-width: 300px;
+  }
+}

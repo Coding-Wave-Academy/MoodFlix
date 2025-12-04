@@ -1,0 +1,65 @@
+/* Add to App.css or create MovieDetail.css */
+.back-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid white;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.detail-content {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.detail-poster {
+  width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.detail-info {
+  max-width: 600px;
+  text-align: left;
+}
+
+.detail-info h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.tagline {
+  font-style: italic;
+  color: #ffcc00;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.overview {
+  line-height: 1.6;
+  margin: 15px 0;
+}
+
+.watch-btn {
+  background: #ff3366;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.watch-btn:hover {
+  background: #ff0044;
+  transform: scale(1.03);
+}
